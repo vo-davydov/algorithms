@@ -1,4 +1,4 @@
-package grokking.algorithms;
+package grokking;
 
 public class BinarySearch {
 
