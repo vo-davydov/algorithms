@@ -8,21 +8,24 @@ public class Alg {
     /**
      * 2. Определить сложность следующих алгоритмов:
      * <p>
-     * * Поиск элемента массива с известным индексом
+     * * Поиск элемента массива с известным индексом O(1)
      * <p>
-     * * Дублирование одномерного массива через foreach
+     * * Дублирование одномерного массива через foreach O(n)
      * <p>
-     * * Удаление элемента массива с известным индексом без сдвига
+     * * Удаление элемента массива с известным индексом без сдвига O(1)
      * <p>
-     * * Удаление элемента массива с неизвестным индексом без сдвига
+     * * Удаление элемента массива с неизвестным индексом без сдвига O(n) в не отсортированном массиве
      * <p>
-     * * Удаление элемента массива с неизвестным индексом со сдвига
+     * * Удаление элемента массива с неизвестным индексом со сдвига O(n)
      */
 
     public static void main(String[] args) {
 
     }
 
+    /**
+     * O(n log n)
+     */
     public static void exampleA() {
         int n = 10000;
         List<Integer> arrayList = new ArrayList<>();
@@ -33,6 +36,9 @@ public class Alg {
         }
     }
 
+    /**
+     * O(n^2)
+     */
     public static void exampleB() {
         int n = 10000;
         List<Integer> arrayList = new ArrayList<>();
@@ -43,6 +49,9 @@ public class Alg {
         }
     }
 
+    /**
+     * O(n)
+     */
     public static void exampleC() {
         int n = 10000;
         List<Integer> arrayList = new ArrayList<>();
@@ -54,6 +63,9 @@ public class Alg {
         }
     }
 
+    /**
+     * O(n)
+     */
     public static void exampleD() {
         factorial(12);
     }
@@ -65,6 +77,9 @@ public class Alg {
         return n * factorial(n - 1);
     }
 
+    /**
+     * O(1.6^n)
+     */
     public static void exampleE() {
         fib(20);
     }
