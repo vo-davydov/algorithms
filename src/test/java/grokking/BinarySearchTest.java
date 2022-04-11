@@ -1,8 +1,10 @@
 package grokking;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,4 +41,32 @@ class BinarySearchTest {
 
     }
 
+
+    private final static int[] FIRST = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16};
+    private final static int FIRST_VALUE = 11;
+
+    static int[] SECOND = new int[]{1, 2, 4, 5, 6};
+    private final static int SECOND_VALUE = 3;
+
+    static int[] THIRD = new int[]{2, 3, 4, 5, 6, 7, 8};
+    private final static int THIRD_VALUE = 1;
+
+    static int[] FOURTH = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
+    private final static int FOURTH_VALUE = 15;
+
+    static int[] FIFTH = new int[]{};
+    private final static int FIFTH_VALUE = 1;
+
+    @Test
+    public void dummySearch() {
+        assertEquals(FIRST_VALUE, BinarySearch.findMissing(FIRST), getErrorMessage(FIRST, FIRST_VALUE));
+        assertEquals(SECOND_VALUE, BinarySearch.findMissing(SECOND), getErrorMessage(SECOND, SECOND_VALUE));
+        assertEquals(THIRD_VALUE, BinarySearch.findMissing(THIRD), getErrorMessage(THIRD, THIRD_VALUE));
+        assertEquals(FOURTH_VALUE, BinarySearch.findMissing(FOURTH), getErrorMessage(FOURTH, FOURTH_VALUE));
+        assertEquals(FIFTH_VALUE, BinarySearch.findMissing(FIFTH), getErrorMessage(FIFTH, FIFTH_VALUE));
+    }
+
+    private String getErrorMessage(int[] array, int number) {
+        return "In array: " + Arrays.toString(array) + " expected number: " + number;
+    }
 }
