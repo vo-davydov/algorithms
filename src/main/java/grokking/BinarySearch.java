@@ -34,4 +34,20 @@ public class BinarySearch {
 
         return null;
     }
+
+    public static int findMissing(int[] arr) {
+        int start = 0;
+        int end = arr.length - 1;
+
+        while (start <= end) {
+            int midIndex = (start + end) / 2;
+            if (arr[midIndex] - midIndex == 1) {
+                start = midIndex + 1;
+            } else {
+                end = midIndex - 1;
+            }
+        }
+
+        return start + 1;
+    }
 }
