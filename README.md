@@ -1,12 +1,12 @@
 # algorithms
 
 
-● O(log n) — бинарный поиск;
+● O(log n) — Binary search;
 
-● O(n) — линейный поиск;
+● O(n) — Simple search;
 
-● O(n* log n) — быстрая сортировка;
+● O(n * log n) — Quicksort;
 
-● O(n2) — медленный алгоритм сортировки (пузырьковая);
+● O(n2) — bubble sort;
 
-● O(n!) — очень медленный алгоритм. Например, задача о коммивояжер
+● O(n!) — Traveling salesperson.
