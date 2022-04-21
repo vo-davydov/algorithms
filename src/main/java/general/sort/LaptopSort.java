@@ -1,6 +1,7 @@
 package general.sort;
 
 import general.sort.domain.Laptop;
+import general.sort.utils.LaptopGenerator;
 
 import java.time.LocalDateTime;
 
@@ -9,7 +10,6 @@ public class LaptopSort {
     private LaptopSort() {
 
     }
-
 
     public static void main(String[] args) {
         Laptop[] laptops = LaptopGenerator.getRandomLaptopArray();
@@ -22,6 +22,7 @@ public class LaptopSort {
         System.out.println(end.getSecond() - start.getSecond());
     }
 
+    //Bubble sort (O(n^2)
     public static void sortLaptops(Laptop[] laptops) {
         int length = laptops.length;
 

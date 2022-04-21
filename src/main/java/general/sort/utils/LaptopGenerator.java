@@ -1,4 +1,4 @@
-package general.sort;
+package general.sort.utils;
 
 import general.sort.domain.Laptop;
 import general.sort.domain.LaptopBrand;

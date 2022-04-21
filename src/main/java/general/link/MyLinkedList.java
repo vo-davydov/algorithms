@@ -2,7 +2,7 @@ package general.link;
 
 import java.util.Iterator;
 
-public final class MyLinkedList<T> implements Iterator<MyLinkedList.Node<T>> {
+public final class MyLinkedList<T> {
     private Node<T> current;
     private Node<T> first;
     private Node<T> last;
@@ -176,20 +176,6 @@ public final class MyLinkedList<T> implements Iterator<MyLinkedList.Node<T>> {
         return current = node;
     }
 
-    @Override
-    public boolean hasNext() {
-        return current != null;
-    }
-
-    @Override
-    public Node<T> next() {
-        return setCurrent(current.getNext());
-    }
-
-    @Override
-    public void remove() {
-        delete(current.getItem());
-    }
 
     protected static class Node<T> {
         private final T item;
@@ -224,5 +210,32 @@ public final class MyLinkedList<T> implements Iterator<MyLinkedList.Node<T>> {
             System.out.println(this);
         }
 
+    }
+
+    public Iterator<MyLinkedList.Node<T>> iterator() {
+        return new MyLinkedListIterator<>(this);
+    }
+
+    private static class MyLinkedListIterator<T> implements Iterator<MyLinkedList.Node<T>> {
+        private final MyLinkedList<T> myLinkedList;
+
+        private MyLinkedListIterator(MyLinkedList<T> myLinkedList) {
+            this.myLinkedList = myLinkedList;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return myLinkedList.getCurrent() != null;
+        }
+
+        @Override
+        public Node<T> next() {
+            return myLinkedList.setCurrent(myLinkedList.getCurrent().getNext());
+        }
+
+        @Override
+        public void remove() {
+            myLinkedList.delete(myLinkedList.getCurrent().getItem());
+        }
     }
 }
