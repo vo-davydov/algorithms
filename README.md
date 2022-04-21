@@ -1,12 +1,3 @@
-# algorithms
+# Big-O Algorithm Complexity Cheat Sheet
 
-
-● O(log n) — Binary search;
-
-● O(n) — Simple search;
-
-● O(n * log n) — Quicksort;
-
-● O(n2) — bubble sort;
-
-● O(n!) — Traveling salesperson.
+![Cheat Sheet](https://user-images.githubusercontent.com/60151816/164488193-0575a3dd-8eab-4063-8406-a7db2213b2ed.png)
