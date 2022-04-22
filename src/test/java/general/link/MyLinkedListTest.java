@@ -1,10 +1,13 @@
 package general.link;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.Iterator;
 import java.util.Objects;
 
 class MyLinkedListTest {
@@ -12,16 +15,20 @@ class MyLinkedListTest {
     private static final MyLinkedList<String> MY_LINKED_LIST = new MyLinkedList<>();
     private static int size;
 
-    public void initLinkedList() {
-        MY_LINKED_LIST.clear();
+    @BeforeEach
+    void init() {
         MY_LINKED_LIST.insert(STRINGS);
         size = MY_LINKED_LIST.getSize();
+    }
+
+    @AfterEach
+    void clearAll() {
+        MY_LINKED_LIST.clear();
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"0", "1", "2", "3"})
     void insert(String item) {
-        initLinkedList();
         MY_LINKED_LIST.insert(item);
         Assertions.assertEquals(MY_LINKED_LIST.find(item), item);
         Assertions.assertEquals(MY_LINKED_LIST.getCurrent().getItem(), item);
@@ -31,7 +38,6 @@ class MyLinkedListTest {
     @ParameterizedTest
     @ValueSource(strings = {"ZERO", "FIRST", "SECOND", "THIRD"})
     void delete(String item) {
-        initLinkedList();
         MY_LINKED_LIST.delete(item);
         Assertions.assertNull(MY_LINKED_LIST.find(item));
         Assertions.assertEquals(MY_LINKED_LIST.getSize(), size - 1);
@@ -52,14 +58,12 @@ class MyLinkedListTest {
 
     @Test
     void deleteFirst() {
-        initLinkedList();
         MY_LINKED_LIST.delete();
         Assertions.assertEquals(MY_LINKED_LIST.getSize(), size - 1);
     }
 
     @Test
     void clear() {
-        initLinkedList();
         MY_LINKED_LIST.clear();
         Assertions.assertEquals(MY_LINKED_LIST.getSize(), 0);
         Assertions.assertNull(MY_LINKED_LIST.getFirst());
@@ -70,14 +74,12 @@ class MyLinkedListTest {
 
     @Test
     void getFirst() {
-        initLinkedList();
         Assertions.assertEquals(STRINGS[STRINGS.length - 1], MY_LINKED_LIST.getCurrent().getItem());
         Assertions.assertEquals(STRINGS[STRINGS.length - 1], MY_LINKED_LIST.getFirst().getItem());
     }
 
     @Test
     void getLast() {
-        initLinkedList();
         Assertions.assertEquals(STRINGS[0], MY_LINKED_LIST.getLast().getItem());
     }
 
@@ -93,18 +95,17 @@ class MyLinkedListTest {
     @ParameterizedTest
     @ValueSource(strings = {"ZERO", "FIRST", "SECOND", "THIRD"})
     void findNode(String item) {
-        initLinkedList();
         Assertions.assertNotNull(MY_LINKED_LIST.findNode(item));
         Assertions.assertEquals(item, Objects.requireNonNull(MY_LINKED_LIST.findNode(item)).getItem());
     }
 
     @Test
     void iterator() {
-        initLinkedList();
+        Iterator<MyLinkedList.Node<String>> iterator = MY_LINKED_LIST.iterator();
         Assertions.assertDoesNotThrow(() -> {
-            while (MY_LINKED_LIST.hasNext()) {
+            while (iterator.hasNext()) {
                 System.out.println(MY_LINKED_LIST.getCurrentValue());
-                MY_LINKED_LIST.next();
+                iterator.next();
             }
         });
     }

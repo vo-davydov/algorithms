@@ -1,22 +1,25 @@
-package general;
+package general.bigO;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Alg {
+public class Algorithm {
 
     /**
-     * 2. Определить сложность следующих алгоритмов:
      * <p>
-     * * Поиск элемента массива с известным индексом O(1)
+     * * Search in array if ID is know O(1)
      * <p>
-     * * Дублирование одномерного массива через foreach O(n)
+     * * Delete in array without shift if ID is know O(1)
      * <p>
-     * * Удаление элемента массива с известным индексом без сдвига O(1)
+     * * Simple search O(n)
      * <p>
-     * * Удаление элемента массива с неизвестным индексом без сдвига O(n) в не отсортированном массиве
+     * * Binary search O(log n)
      * <p>
-     * * Удаление элемента массива с неизвестным индексом со сдвига O(n)
+     * * Quicksort O(n * log n)
+     * <p>
+     * * Selection sort  O(n2)
+     * <p>
+     * * Traveling salesperson O(n!)
      */
 
     public static void main(String[] args) {
