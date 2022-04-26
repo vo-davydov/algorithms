@@ -55,7 +55,7 @@ class RecursionTest {
 
     @Test
     public void doKnapsack() {
-        assertEquals(119_000.0, Recursion.findBestForKnapsack(items, knapsack));
         assertEquals(3_500.0, Recursion.findBestForKnapsack(secondItems, secondKnapsack));
+        assertEquals(119_000.0, Recursion.findBestForKnapsack(items, knapsack));
     }
 }
