@@ -74,10 +74,6 @@ class TreeImplTest {
         return (max - min) <= 1;
     }
 
-    private int findLeafMaxLevel() {
-        return -1;
-    }
-
     private List<Node<Integer>> getNodeList(TreeImpl t) {
         List<Node<Integer>> nodes = new ArrayList<>();
         t.traverse(PRE_ORDER, nodes);
